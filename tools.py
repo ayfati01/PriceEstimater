@@ -79,7 +79,6 @@ def command():
     cycle = True
     while cycle:
         print("\nTo start estimate ==> type \'estimate\' \n"
-              "To check rates      ==> type \'report\' \n"
               "To quit             ==> type \'quit\' \n")
         c = input(">>>    ")
         if c == 'report':
