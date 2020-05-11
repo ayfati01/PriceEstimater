@@ -17,7 +17,6 @@ import requests
 import datetime
 import getpass
 import sys
-import hashlib
 from terminaltables import SingleTable
 
 
@@ -92,16 +91,6 @@ def command():
         else:
             print("not a valid command")
 
-
-# Generate a hash key
-
-
-def generatehashkey(raw_text):
-    app_name = "price app"
-    text = raw_text + app_name
-    text = text[4:-1:len(text) - 6] + text[3:7] + text[0:6:2]
-    return hashlib.md5(text.encode()).hexdigest()
-
 # To clear the screen
 
 
@@ -113,17 +102,6 @@ def clearScreen():
     else:
         os.system('cls')
 
-
-# Verify key
-def verify():
-    #   key = "386ab0331bfbbb0de293a9f319144f46"
-  #  if key != generatehashkey(raw_text=os.environ['LOGNAME']):
-   #     print('''You do not have a valid license to run this program.
-    #    Contact ammar at fatihallah.ammar@gmail.com''')
-    #    sys.exit()
-   # else:
-   #     pass
-   pass
 
 # Get base pay
 
@@ -234,7 +212,7 @@ def send_email(info):
         "https://api.mailgun.net/v3/sandbox0e48ae61dd724db49fd04a9f7c7644ab.mailgun.org/messages",
         auth=("api", "key-6a5a0ba282ac7d5e464724491f160e23"),
         data={"from": "priceapp@sandbox0e48ae61dd724db49fd04a9f7c7644ab.mailgun.org",
-              "to": ["fatihallah.ammar@gmail.com"],
+              "to": ["insert your email here"],
               "subject": "Price lookup detected",
               "text": "{}".format(info)})
 
