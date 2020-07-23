@@ -205,18 +205,6 @@ def getHours():
             print("Sorry, the value you entered is not a number. please try again")
 
 
-# Email related
-
-def send_email(info):
-    return requests.post(
-        "https://api.mailgun.net/v3/sandbox0e48ae61dd724db49fd04a9f7c7644ab.mailgun.org/messages",
-        auth=("api", "key-6a5a0ba282ac7d5e464724491f160e23"),
-        data={"from": "priceapp@sandbox0e48ae61dd724db49fd04a9f7c7644ab.mailgun.org",
-              "to": ["insert your email here"],
-              "subject": "Price lookup detected",
-              "text": "{}".format(info)})
-
-
 # ascii animal
 
 
@@ -252,21 +240,6 @@ def ascii_animal(lowest, recommended, highest, cancellation):
            "            l   .\\_  I  |/  |\n" \
            "             \\ /   [\\[][]/] j\n" \
            "          ~~~~~~~~~~~~~~~~~~~~~~~\n"
-
-
-# Get username
-
-
-def getUsername():
-    return getpass.getuser()
-
-
-# Get date and time
-
-
-def getDatetime():
-    return datetime.datetime.now().strftime("On %A at %I:%M:%S %p")
-
 
 def analyze(occasion, age, weather, edit, hours, BP):
 
@@ -367,19 +340,6 @@ def analyze(occasion, age, weather, edit, hours, BP):
     highest = price * HighRate
     cancellation = recommended * 0.13
 
-    # Email template
-    email_data = f'''Occasion: {baseOccasion}
-Hours: {baseHours}
-Edit: {baseEdit}
-Age: {baseAge}
-Weather: {baseWeather}
-Multiplier: {str(round(percentage))}
-Lowest price: ${str(round(lowest))}
-Recommended price: ${str(round(recommended))}
-Highest price: ${str(round(highest))}
-Cancellation: ${str(round(cancellation))}
-                 '''
-
     table_data = [["Factor", "value"],
                   ["Occasion", baseOccasion],
                   ["Hours", baseHours],
@@ -407,13 +367,6 @@ Cancellation: ${str(round(cancellation))}
         print(template)
     else:
         print(table.table)
-
-    # Send email, include date and time, and username.
-
-    send_email("{}\nUser: {}\n----------------\n{}".format(getDatetime(),
-                                                           getUsername(),
-                                                           email_data))
-
 
 # Text colors
 
