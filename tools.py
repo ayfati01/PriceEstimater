@@ -13,9 +13,7 @@
 
 import os
 from colorama import Fore
-import requests
 import datetime
-import getpass
 import sys
 from terminaltables import SingleTable
 
