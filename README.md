@@ -25,8 +25,6 @@ The results:
   ```
 
 ## Run
-  - The program sends a receipt of the estimation to an email, you should put YOUR email, not the client's email. That way  you will keep a record of the estimates so you dont have to run them again.
-  - To put your email, head to tools.py in line 215 and change the string "insert your email" to your email.
   - if you are happy with the preset factors that makes the estimation, you can just run the program by typing
   ```python
   python app.py
@@ -34,4 +32,4 @@ The results:
 
 
 ___
-I know that this project is still far from perfect, I'm still working on some fixes to make it more effecient but I'd love any kind of help with this project!
+I know that this project is still far from perfect, I'm still working on some fixes to make it more effecient and I'd love any kind of help with this project!
